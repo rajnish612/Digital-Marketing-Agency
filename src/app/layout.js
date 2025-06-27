@@ -20,8 +20,8 @@ export default function RootLayout({ children }) {
       <body className={rosarivo.className}>
         <AnimatedCursor
           innerSize={8}
-          outerSize={35}
-          color="194, 65, 12"
+          outerSize={24}
+          color="187, 166, 125"
           outerAlpha={0.6}
           innerScale={1.2}
           outerScale={2.8}
@@ -48,15 +48,15 @@ export default function RootLayout({ children }) {
           ]}
           outerStyle={{
             background:
-              "linear-gradient(135deg, rgba(239, 68, 68, 0.6), rgba(220, 38, 38, 0.6))",
-            border: "2px solid rgba(239, 68, 68, 0.8)",
+              "linear-gradient(135deg, rgba(187, 166, 125, 0.6), rgba(209, 189, 144, 0.6))",
+            border: "2px solid rgba(187, 166, 125, 0.8)",
             borderRadius: "50%",
             backdropFilter: "blur(4px)",
           }}
           innerStyle={{
-            background: "linear-gradient(135deg, #ef4444, #dc2626)",
+            background: "linear-gradient(135deg, #bba67d, #d1bd90)",
             borderRadius: "50%",
-            boxShadow: "0 0 8px rgba(239, 68, 68, 0.6)",
+            boxShadow: "0 0 8px rgba(187, 166, 125, 0.6)",
           }}
         />
         <Navbar />
