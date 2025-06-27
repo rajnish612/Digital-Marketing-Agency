@@ -21,6 +21,7 @@
   --foreground: var(--text-primary);
   --surface-dark: var(--surface-dark);
   --accent: var(--accent);
+  --font-work-sans: var(--font-work-sans);
 }
 
 body {

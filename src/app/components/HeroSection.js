@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import { workSans } from "../fonts";
 
 // Sophisticated easing curves
 const easeInOutCubic = [0.645, 0.045, 0.355, 1];
@@ -65,7 +66,7 @@ const HeroSection = () => {
                   ease: easeInOutCubic,
                   delay: 0.9,
                 }}
-                className="text-xl md:text-2xl text-foreground/80 leading-relaxed"
+                className={`text-xl md:text-2xl text-foreground/80 leading-relaxed ${workSans.className}`}
               >
                 Welcome to your perfect homestay destination in the heart of
                 Assam
@@ -85,13 +86,15 @@ const HeroSection = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="space-y-2">
-                  <span className="text-sm font-medium text-foreground/60 uppercase tracking-wider">
+                  <span
+                    className={`text-sm font-medium text-foreground/60 uppercase tracking-wider ${workSans.className}`}
+                  >
                     Destination
                   </span>
                   <h3 className="text-2xl font-bold text-foreground">
                     Duliajan, Assam
                   </h3>
-                  <p className="text-foreground/70">
+                  <p className={`text-foreground/70 ${workSans.className}`}>
                     Discover the beauty of Northeast India
                   </p>
                 </div>
@@ -126,10 +129,14 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <button className="px-8 py-4 bg-accent text-surface-dark font-semibold rounded-full hover:bg-accent/90 transform hover:scale-105 transition-all duration-300 shadow-lg">
+              <button
+                className={`px-8 py-4 bg-accent text-surface-dark font-semibold rounded-full hover:bg-accent/90 transform hover:scale-105 transition-all duration-300 shadow-lg ${workSans.className}`}
+              >
                 Book Your Stay
               </button>
-              <button className="px-8 py-4 border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-surface-dark transition-all duration-300">
+              <button
+                className={`px-8 py-4 border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-surface-dark transition-all duration-300 ${workSans.className}`}
+              >
                 Explore Packages
               </button>
             </motion.div>
@@ -168,11 +175,15 @@ const HeroSection = () => {
                 >
                   <div className="flex items-center gap-2">
                     <div className="flex text-yellow-400">{"★".repeat(5)}</div>
-                    <span className="text-sm font-semibold text-gray-800">
+                    <span
+                      className={`text-sm font-semibold text-gray-800 ${workSans.className}`}
+                    >
                       4.9
                     </span>
                   </div>
-                  <p className="text-xs text-gray-600">128 reviews</p>
+                  <p className={`text-xs text-gray-600 ${workSans.className}`}>
+                    128 reviews
+                  </p>
                 </motion.div>
 
                 {/* Floating Price Card */}
@@ -182,8 +193,12 @@ const HeroSection = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="absolute bottom-4 left-4 bg-accent text-surface-dark rounded-2xl px-4 py-3 shadow-lg"
                 >
-                  <div className="text-lg font-bold">₹2,500</div>
-                  <div className="text-sm opacity-80">per night</div>
+                  <div className={`text-lg font-bold ${workSans.className}`}>
+                    ₹2,500
+                  </div>
+                  <div className={`text-sm opacity-80 ${workSans.className}`}>
+                    per night
+                  </div>
                 </motion.div>
               </motion.div>
 
@@ -234,8 +249,16 @@ const HeroSection = () => {
                   className="w-20 h-20 rounded-xl overflow-hidden shadow-md bg-accent/20 backdrop-blur-sm flex items-center justify-center"
                 >
                   <div className="text-center">
-                    <div className="text-sm font-bold text-accent">+12</div>
-                    <div className="text-xs text-accent/80">more</div>
+                    <div
+                      className={`text-sm font-bold text-accent ${workSans.className}`}
+                    >
+                      +12
+                    </div>
+                    <div
+                      className={`text-xs text-accent/80 ${workSans.className}`}
+                    >
+                      more
+                    </div>
                   </div>
                 </motion.div>
               </motion.div>
@@ -247,7 +270,9 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex gap-4 mt-6"
               >
-                <div className="flex items-center gap-2 text-sm text-foreground/70">
+                <div
+                  className={`flex items-center gap-2 text-sm text-foreground/70 ${workSans.className}`}
+                >
                   <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
                     <svg
                       className="w-4 h-4 text-accent"
@@ -259,7 +284,9 @@ const HeroSection = () => {
                   </div>
                   <span>3 Bedrooms</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-foreground/70">
+                <div
+                  className={`flex items-center gap-2 text-sm text-foreground/70 ${workSans.className}`}
+                >
                   <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
                     <svg
                       className="w-4 h-4 text-accent"

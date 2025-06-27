@@ -18,47 +18,49 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={rosarivo.className}>
-        <AnimatedCursor
-          innerSize={8}
-          outerSize={24}
-          color="187, 166, 125"
-          outerAlpha={0.6}
-          innerScale={1.2}
-          outerScale={2.8}
-          trailingSpeed={8}
-          showSystemCursor={false}
-          hasBlendMode={false}
-          clickables={[
-            "a",
-            'input[type="text"]',
-            'input[type="email"]',
-            'input[type="number"]',
-            'input[type="submit"]',
-            'input[type="image"]',
-            "label[for]",
-            "select",
-            "textarea",
-            "button",
-            ".link",
-            ".cursor-pointer",
-            ".card",
-            ".hover-target",
-            "img",
-            "video",
-          ]}
-          outerStyle={{
-            background:
-              "linear-gradient(135deg, rgba(187, 166, 125, 0.6), rgba(209, 189, 144, 0.6))",
-            border: "2px solid rgba(187, 166, 125, 0.8)",
-            borderRadius: "50%",
-            backdropFilter: "blur(4px)",
-          }}
-          innerStyle={{
-            background: "linear-gradient(135deg, #bba67d, #d1bd90)",
-            borderRadius: "50%",
-            boxShadow: "0 0 8px rgba(187, 166, 125, 0.6)",
-          }}
-        />
+        <div className="hidden lg:block">
+          <AnimatedCursor
+            innerSize={8}
+            outerSize={24}
+            color="var(--foreground)"
+            outerAlpha={0.6}
+            innerScale={1.2}
+            outerScale={2.8}
+            trailingSpeed={8}
+            showSystemCursor={false}
+            hasBlendMode={false}
+            clickables={[
+              "a",
+              'input[type="text"]',
+              'input[type="email"]',
+              'input[type="number"]',
+              'input[type="submit"]',
+              'input[type="image"]',
+              "label[for]",
+              "select",
+              "textarea",
+              "button",
+              ".link",
+              ".cursor-pointer",
+              ".card",
+              ".hover-target",
+              "img",
+              "video",
+            ]}
+            outerStyle={{
+              border: "2px solid var(--foreground)",
+              borderRadius: "50%",
+              backdropFilter: "blur(4px)",
+              opacity: 0.6,
+            }}
+            innerStyle={{
+              backgroundColor: "var(--foreground)",
+              borderRadius: "50%",
+              boxShadow: "0 0 8px var(--foreground)",
+              opacity: 0.8,
+            }}
+          />
+        </div>
         <Navbar />
         {children}
       </body>
