@@ -11,7 +11,7 @@ const HeroSection = () => {
       className="display flex justify-evenly items-center"
     >
       <div className="w-100">
-        <span className=" text-5xl font-black  text-black ">
+        <span className="text-5xl">
           "Experience Comfort Like Home – Welcome to{" "}
           <span className="text-red-500">-Your Homestay Name</span>"
         </span>
