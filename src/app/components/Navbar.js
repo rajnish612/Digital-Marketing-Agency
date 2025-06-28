@@ -10,7 +10,7 @@ const Navbar = () => {
       initial={{ opacity: 0, translateY: "-100%" }}
       transition={{ duration: 0.8 }}
       animate={{ opacity: 10, translateY: 0 }}
-      className="h-30 m-auto bg-white p-4 px-7 w-screen flex items-center"
+      className="h-30 m-auto bg-transparent z-20 p-4 px-7 relative w-screen flex items-center"
     >
       <motion.div
         initial={{ opacity: 0, translateY: "-100%" }}
@@ -36,8 +36,8 @@ const Navbar = () => {
               key={idx}
             >
               <span
-                className={`text-black ${
-                  idx === 0 && "xl:ml-50 lg:ml-40 md:ml-30"
+                className={` text-white ${
+                  idx === 0 && " xl:ml-50 lg:ml-40 md:ml-30"
                 }`}
               >
                 {item}
