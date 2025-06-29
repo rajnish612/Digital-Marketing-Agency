@@ -2,6 +2,7 @@ import { Rosarivo } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import AnimatedCursor from "react-animated-cursor";
+import HeroSection from "./components/HeroSection";
 
 const rosarivo = Rosarivo({
   weight: ["400"],
@@ -62,6 +63,7 @@ export default function RootLayout({ children }) {
           />
         </div>
         <Navbar />
+      
         {children}
       </body>
     </html>
