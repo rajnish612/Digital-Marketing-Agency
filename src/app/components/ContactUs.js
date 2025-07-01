@@ -1,8 +1,27 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const ContactUs = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const phoneNumber = "918638232686";
+
+  const generateWhatsAppLink = () => {
+    const baseURL = `https://wa.me/${phoneNumber}`;
+    const message = `Hi! I'm ${name || "a guest"}${
+      email && `(${email})`
+    } and i am interested in booking your homestay${
+      selectedDate ? ` on ${selectedDate.toLocaleDateString()}` : ""
+    }. Please provide more details.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    return `${baseURL}?text=${encodedMessage}`;
+  };
+
   return (
     <section id="contact" className="bg-[#f5f5f2] py-16 px-4 md:px-24">
       <motion.div
@@ -23,13 +42,14 @@ const ContactUs = () => {
             Get in Touch ✉️
           </motion.h2>
           <p className="text-gray-600 text-lg">
-            Have questions or want to book your stay? Fill out the form and
-            we’ll get back to you soon!
+            Have questions or want to book your stay? Choose your date and send
+            us a WhatsApp message!
           </p>
 
           <form className="space-y-4">
             <div>
               <input
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 placeholder="Your Name"
                 className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
@@ -37,26 +57,34 @@ const ContactUs = () => {
             </div>
             <div>
               <input
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="Your Email"
                 className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
               />
             </div>
+
+            {/* Date Picker */}
             <div>
-              <textarea
-                placeholder="Your Message"
-                rows="4"
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                placeholderText="Select Booking Date"
                 className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
-              ></textarea>
+                minDate={new Date()}
+              />
             </div>
-            <motion.button
-              type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-xl transition"
+
+            <motion.a
+              href={email && name && selectedDate && generateWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-xl transition text-center"
               whileTap={{ scale: 0.95 }}
               whileHover={{ scale: 1.02 }}
             >
-              Send Message
-            </motion.button>
+              Message on WhatsApp
+            </motion.a>
           </form>
         </div>
 
