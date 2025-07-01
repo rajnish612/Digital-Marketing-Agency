@@ -1,12 +1,17 @@
-import { Rosarivo } from "next/font/google";
+import { Rosarivo, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import AnimatedCursor from "react-animated-cursor";
-import HeroSection from "./components/HeroSection";
 
 const rosarivo = Rosarivo({
   weight: ["400"],
   variable: "--font-rosarivo",
+  subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
   subsets: ["latin"],
 });
 
@@ -18,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={rosarivo.className}>
+      <body className={poppins.className}>
         <div className="hidden lg:block">
           <AnimatedCursor
             innerSize={8}
@@ -63,7 +68,7 @@ export default function RootLayout({ children }) {
           />
         </div>
         <Navbar />
-      
+
         {children}
       </body>
     </html>

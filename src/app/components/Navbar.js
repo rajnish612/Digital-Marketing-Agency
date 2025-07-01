@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { workSans } from "../fonts";
+
 import { BsList } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
 const listItems = ["Catalogue", "About Us", "Contact", "Gallery", "Home"];
@@ -63,7 +63,7 @@ const Navbar = () => {
               >
                 <a
                   href={`#${item.toLowerCase().replace(" ", "-")}`}
-                  className={`text-foreground text-sm lg:text-base font-medium hover:text-accent transition-colors duration-300 py-2 px-1 ${workSans.className}`}
+                  className={`text-foreground text-sm lg:text-base font-medium hover:text-accent transition-colors duration-300 py-2 px-1 `}
                 >
                   {item}
                 </a>
@@ -94,7 +94,7 @@ const Navbar = () => {
                   x: isMenuOpen ? 0 : -20,
                 }}
                 transition={{ duration: 0.3, delay: idx * 0.1 }}
-                className={`block text-foreground font-medium hover:text-accent transition-colors duration-300 py-2 border-b border-accent/20 ${workSans.className}`}
+                className={`block text-foreground font-medium hover:text-accent transition-colors duration-300 py-2 border-b border-accent/20 `}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item}

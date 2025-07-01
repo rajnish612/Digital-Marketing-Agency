@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-import { workSans } from "../fonts";
 
 // Sophisticated easing curves
 const easeInOutCubic = [0.645, 0.045, 0.355, 1];
@@ -58,15 +57,11 @@ const HeroSection = () => {
                 >
                   <div className="flex items-center gap-2">
                     <div className="flex text-yellow-400">{"★".repeat(5)}</div>
-                    <span
-                      className={`text-sm font-semibold text-gray-800 ${workSans.className}`}
-                    >
+                    <span className={`text-sm font-semibold text-gray-800 `}>
                       4.9
                     </span>
                   </div>
-                  <p className={`text-xs text-gray-600 ${workSans.className}`}>
-                    128 reviews
-                  </p>
+                  <p className={`text-xs text-gray-600 `}>128 reviews</p>
                 </motion.div>
 
                 {/* Floating Price Card */}
@@ -76,12 +71,8 @@ const HeroSection = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="absolute bottom-4 left-4 bg-accent text-surface-dark rounded-2xl px-4 py-3 shadow-lg"
                 >
-                  <div className={`text-lg font-bold ${workSans.className}`}>
-                    ₹2,500
-                  </div>
-                  <div className={`text-sm opacity-80 ${workSans.className}`}>
-                    per night
-                  </div>
+                  <div className={`text-lg font-bold `}>₹2,500</div>
+                  <div className={`text-sm opacity-80 `}>per night</div>
                 </motion.div>
               </motion.div>
 
@@ -132,16 +123,8 @@ const HeroSection = () => {
                   className="w-20 h-20 rounded-xl overflow-hidden shadow-md bg-accent/20 backdrop-blur-sm flex items-center justify-center"
                 >
                   <div className="text-center">
-                    <div
-                      className={`text-sm font-bold text-accent ${workSans.className}`}
-                    >
-                      +12
-                    </div>
-                    <div
-                      className={`text-xs text-accent/80 ${workSans.className}`}
-                    >
-                      more
-                    </div>
+                    <div className={`text-sm font-bold text-accent `}>+12</div>
+                    <div className={`text-xs text-accent/80 `}>more</div>
                   </div>
                 </motion.div>
               </motion.div>
@@ -154,7 +137,7 @@ const HeroSection = () => {
                 className="flex gap-4 mt-6"
               >
                 <div
-                  className={`flex items-center gap-2 text-sm text-foreground/70 ${workSans.className}`}
+                  className={`flex items-center gap-2 text-sm text-foreground/70 `}
                 >
                   <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
                     <svg
@@ -168,7 +151,7 @@ const HeroSection = () => {
                   <span>3 Bedrooms</span>
                 </div>
                 <div
-                  className={`flex items-center gap-2 text-sm text-foreground/70 ${workSans.className}`}
+                  className={`flex items-center gap-2 text-sm text-foreground/70 `}
                 >
                   <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
                     <svg
@@ -209,7 +192,7 @@ const HeroSection = () => {
                   ease: easeOutQuart,
                   delay: 0.6,
                 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground mb-2"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground mb-2"
               >
                 Experience Comfort{" "}
                 <motion.span
@@ -233,7 +216,7 @@ const HeroSection = () => {
                   ease: easeInOutCubic,
                   delay: 0.9,
                 }}
-                className={`text-lg md:text-xl text-foreground/80 leading-relaxed tracking-normal ${workSans.className} mb-1`}
+                className={`text-lg md:text-xl text-foreground/80 leading-relaxed tracking-normal  mb-1`}
               >
                 Welcome to your perfect homestay destination in the heart of
                 Assam.
@@ -279,7 +262,7 @@ const HeroSection = () => {
               {/* Text Content - Left Aligned */}
               <div className="space-y-0.5 text-left">
                 <span
-                  className={`text-xs font-semibold tracking-widest text-gray-500 uppercase ${workSans.className}`}
+                  className={`text-xs font-semibold tracking-widest text-gray-500 uppercase `}
                 >
                   Destination
                 </span>
@@ -289,7 +272,7 @@ const HeroSection = () => {
                 </h3>
 
                 <p
-                  className={`text-sm text-gray-700 font-medium leading-snug ${workSans.className}`}
+                  className={`text-sm text-gray-700 font-medium leading-snug `}
                 >
                   Discover the beauty of{" "}
                   <span className="text-orange-500 font-semibold">
@@ -312,7 +295,7 @@ const HeroSection = () => {
                     .getElementById("contact")
                     .scrollIntoView({ behavior: "smooth" })
                 }
-                className={`px-6 py-3 bg-accent text-surface-dark font-semibold rounded-full hover:bg-accent/90 transform hover:scale-105 transition-all duration-300 shadow-lg ${workSans.className}`}
+                className={`px-6 py-3 bg-accent text-surface-dark font-semibold rounded-full hover:bg-accent/90 transform hover:scale-105 transition-all duration-300 shadow-lg `}
               >
                 Book Your Stay
               </button>
@@ -322,7 +305,7 @@ const HeroSection = () => {
                     .getElementById("catalogue")
                     .scrollIntoView({ behavior: "smooth" })
                 }
-                className={`px-6 py-3 border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-surface-dark transition-all duration-300 ${workSans.className}`}
+                className={`px-6 py-3 border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-surface-dark transition-all duration-300 `}
               >
                 Explore Packages
               </button>
