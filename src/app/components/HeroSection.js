@@ -10,7 +10,7 @@ const easeInOutQuart = [0.76, 0, 0.24, 1];
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen bg-background flex items-center px-6 lg:px-12 pt-16">
+    <section id="home" className="min-h-screen bg-background flex items-center px-6 lg:px-12 pt-16">
       <div className="max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0 }}

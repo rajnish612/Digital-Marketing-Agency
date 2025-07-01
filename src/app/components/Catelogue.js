@@ -42,7 +42,7 @@ const Catelogue = () => {
       transition={{ duration: 1 }}
       viewport={{ once: true, amount: 0.3 }}
       className="py-16 px-6 bg-[#f5f5f2]"
-      id="catelogue"
+      id="catalogue"
     >
       <h2 className="text-4xl font-bold text-center mb-10">
         Our Stay Packages
@@ -76,7 +76,7 @@ const Catelogue = () => {
                   transition={{ delay: index * 0.5, ease: "linear" }}
                   whileInView={{ opacity: 1, y: 0 }}
                   key={index}
-                  viewport={{ once: false}}
+                  viewport={{ once: false }}
                   className="flex items-center"
                 >
                   <span className="text-green-600 mr-2">✔</span> {feature}

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const AboutUs = () => {
   return (
     <section
-      id="about"
+      id="about us"
       className="relative py-24 px-6 bg-[#f5f5f2]"
     >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">

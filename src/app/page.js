@@ -4,6 +4,7 @@ import Catelogue from "./components/Catelogue";
 import Gallery from "./components/Gallery";
 import { Cards } from "./components/Cards";
 import AboutUs from "./components/AboutUs.js";
+import ContactUs from "./components/ContactUs";
 
 const page = () => {
   return (
@@ -14,6 +15,7 @@ const page = () => {
       {/* <Gallery /> */}
       <Cards />
       <AboutUs />
+      <ContactUs />
     </div>
   );
 };
