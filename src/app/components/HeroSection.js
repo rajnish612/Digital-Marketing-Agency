@@ -10,7 +10,10 @@ const easeInOutQuart = [0.76, 0, 0.24, 1];
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen bg-background flex items-center px-6 lg:px-12 pt-16">
+    <section
+      id="home"
+      className="min-h-screen bg-background flex items-center px-6 lg:px-12 pt-16"
+    >
       <div className="max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0 }}
@@ -78,29 +81,39 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               transition={{
                 duration: 0.8,
-                ease: easeInOutCubic,
+                ease: [0.68, -0.55, 0.27, 1.55],
                 delay: 1.1,
               }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-surface-dark/10 backdrop-blur-sm border border-accent/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 group"
             >
               <div className="flex items-center justify-between">
-                <div className="space-y-2">
+                {/* Left Text Content */}
+                <div className="space-y-3">
                   <span
-                    className={`text-sm font-medium text-foreground/60 uppercase tracking-wider ${workSans.className}`}
+                    className={`text-xs font-semibold tracking-wider uppercase text-gray-500 ${workSans.className}`}
                   >
                     Destination
                   </span>
-                  <h3 className="text-2xl font-bold text-foreground">
+
+                  <h3 className="text-3xl font-extrabold text-orange-600 group-hover:text-orange-700 transition duration-300">
                     Duliajan, Assam
                   </h3>
-                  <p className={`text-foreground/70 ${workSans.className}`}>
-                    Discover the beauty of Northeast India
+
+                  <p
+                    className={`text-base text-gray-700 font-medium ${workSans.className}`}
+                  >
+                    Discover the beauty of{" "}
+                    <span className="text-orange-600 font-semibold">
+                      Northeast India
+                    </span>
                   </p>
                 </div>
-                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center">
+
+                {/* Right Icon */}
+                <div className="w-16 h-16 bg-orange-100/10 border border-orange-400/20 rounded-full flex items-center justify-center shadow-inner backdrop-blur-sm transition group-hover:scale-105">
                   <svg
-                    className="w-8 h-8 text-accent"
+                    className="w-8 h-8 text-orange-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -122,7 +135,6 @@ const HeroSection = () => {
               </div>
             </motion.div>
 
-            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 1.3 }}
