@@ -84,7 +84,14 @@ const Catelogue = () => {
               ))}
             </ul>
             <div className="text-center">
-              <button className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition">
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition"
+              >
                 Book Now
               </button>
             </div>

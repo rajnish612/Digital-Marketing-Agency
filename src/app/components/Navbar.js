@@ -87,7 +87,7 @@ const Navbar = () => {
             {listItems.map((item, idx) => (
               <motion.a
                 key={idx}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                href={`#${item.toLowerCase()}`}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{
                   opacity: isMenuOpen ? 1 : 0,

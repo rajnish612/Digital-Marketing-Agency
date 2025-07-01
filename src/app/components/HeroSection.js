@@ -14,7 +14,7 @@ const HeroSection = () => {
       id="home"
       className="min-h-screen bg-background flex items-center px-6 lg:px-12 pt-16"
     >
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-7xl mt-10 mx-auto w-full">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -79,41 +79,19 @@ const HeroSection = () => {
             {/* Destination Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.8,
                 ease: [0.68, -0.55, 0.27, 1.55],
                 delay: 1.1,
               }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 group"
+              className="w-full bg-[#f5f5f2]/60 backdrop-blur-xl border border-gray-200 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 group"
             >
-              <div className="flex items-center justify-between">
-                {/* Left Text Content */}
-                <div className="space-y-3">
-                  <span
-                    className={`text-xs font-semibold tracking-wider uppercase text-gray-500 ${workSans.className}`}
-                  >
-                    Destination
-                  </span>
-
-                  <h3 className="text-3xl font-extrabold text-orange-600 group-hover:text-orange-700 transition duration-300">
-                    Duliajan, Assam
-                  </h3>
-
-                  <p
-                    className={`text-base text-gray-700 font-medium ${workSans.className}`}
-                  >
-                    Discover the beauty of{" "}
-                    <span className="text-orange-600 font-semibold">
-                      Northeast India
-                    </span>
-                  </p>
-                </div>
-
-                {/* Right Icon */}
-                <div className="w-16 h-16 bg-orange-100/10 border border-orange-400/20 rounded-full flex items-center justify-center shadow-inner backdrop-blur-sm transition group-hover:scale-105">
+              {/* Icon - Aligned Left */}
+              <div className="flex justify-start mb-6">
+                <div className="w-16 h-16 bg-orange-100 border border-orange-300 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
                   <svg
-                    className="w-8 h-8 text-orange-400"
+                    className="w-8 h-8 text-orange-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -133,6 +111,29 @@ const HeroSection = () => {
                   </svg>
                 </div>
               </div>
+
+              {/* Text Content - Left Aligned */}
+              <div className="space-y-2 text-left">
+                <span
+                  className={`text-sm font-semibold tracking-widest text-gray-500 uppercase ${workSans.className}`}
+                >
+                  Destination
+                </span>
+
+                <h3 className="text-3xl font-extrabold text-orange-600 group-hover:text-orange-700 transition duration-300">
+                  Duliajan, Assam
+                </h3>
+
+                <p
+                  className={`text-base text-gray-700 font-medium leading-relaxed ${workSans.className}`}
+                >
+                  Discover the beauty of{" "}
+                  <span className="text-orange-500 font-semibold">
+                    Northeast India
+                  </span>{" "}
+                  with comfort, culture, and calmness.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -142,11 +143,21 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <button
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
                 className={`px-8 py-4 bg-accent text-surface-dark font-semibold rounded-full hover:bg-accent/90 transform hover:scale-105 transition-all duration-300 shadow-lg ${workSans.className}`}
               >
                 Book Your Stay
               </button>
               <button
+                onClick={() =>
+                  document
+                    .getElementById("catalogue")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
                 className={`px-8 py-4 border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-surface-dark transition-all duration-300 ${workSans.className}`}
               >
                 Explore Packages
