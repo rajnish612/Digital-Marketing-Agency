@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const images = [
   "/images/room.jpg",
+  "/images/view.jpg",
   "/images/view.jpg",
   "/images/balcony.jpg",
   "/images/food.jpg",
@@ -22,14 +24,20 @@ const Gallery = () => {
             key={idx}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
-            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.5 }}
             className="overflow-hidden rounded-xl shadow-md"
           >
-            <img
+            <Image
               src={src}
               alt={`Gallery Image ${idx + 1}`}
+              width={600}
+              height={400}
               className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+              loading={idx === 0 ? "eager" : "lazy"}
+              priority={idx === 0}
+              placeholder="blur"
+              blurDataURL={src}
             />
           </motion.div>
         ))}

@@ -51,7 +51,7 @@ const Catelogue = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        viewport={{ once: false }}
+        viewport={{ once: true, amount: 0.5 }}
         className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
       >
         {packages.map((pkg, idx) => (
@@ -59,8 +59,8 @@ const Catelogue = () => {
             key={pkg.name}
             initial={{ opacity: 0, scale: 0.1 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: idx * 0.1, ease: "linear" }}
-            viewport={{ once: false }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.5 }}
             className="bg-[#f5f5f2] p-6 rounded-2xl shadow-md border hover:shadow-xl transition"
           >
             <h3 className="text-2xl font-semibold text-center text-indigo-600 mb-4">
@@ -72,11 +72,11 @@ const Catelogue = () => {
             <ul className="space-y-3 text-gray-600 mb-6">
               {pkg.features.map((feature, index) => (
                 <motion.li
-                  initial={{ opacity: 0, y: -100 }}
-                  transition={{ delay: index * 0.5, ease: "linear" }}
+                  initial={{ opacity: 0, y: -40 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                   whileInView={{ opacity: 1, y: 0 }}
                   key={index}
-                  viewport={{ once: false }}
+                  viewport={{ once: true, amount: 0.5 }}
                   className="flex items-center"
                 >
                   <span className="text-green-600 mr-2">✔</span> {feature}
