@@ -8,6 +8,8 @@ const ContactUs = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [adults, setAdults] = useState(1);
+  const [children, setChildren] = useState(0);
   const phoneNumber = "918638232686";
 
   const generateWhatsAppLink = () => {
@@ -16,7 +18,7 @@ const ContactUs = () => {
       email && `(${email})`
     } and i am interested in booking your homestay${
       selectedDate ? ` on ${selectedDate.toLocaleDateString()}` : ""
-    }. Please provide more details.`;
+    } for ${adults} adult(s) and ${children} child(ren). Please provide more details.`;
 
     const encodedMessage = encodeURIComponent(message);
     return `${baseURL}?text=${encodedMessage}`;
@@ -65,7 +67,7 @@ const ContactUs = () => {
             </div>
 
             {/* Date Picker */}
-            <div>
+            <div className="flex flex-col space-y-2">
               <DatePicker
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
@@ -73,6 +75,30 @@ const ContactUs = () => {
                 className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
                 minDate={new Date()}
               />
+
+              <select
+                value={adults}
+                onChange={(e) => setAdults(Number(e.target.value))}
+                className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+              >
+                {[...Array(6)].map((_, i) => (
+                  <option key={i} value={i + 1}>
+                    {i + 1} Adult{i > 0 ? "s" : ""}
+                  </option>
+                ))}
+              </select>
+
+              <select
+                value={children}
+                onChange={(e) => setChildren(Number(e.target.value))}
+                className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
+              >
+                {[...Array(6)].map((_, i) => (
+                  <option key={i} value={i}>
+                    {i} Child{i !== 1 ? "ren" : ""}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <motion.a
