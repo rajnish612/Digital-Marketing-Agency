@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 
 import { BsList } from "react-icons/bs";
@@ -8,13 +8,45 @@ const listItems = ["Catalogue", "About Us", "Contact", "Gallery", "Home"];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastStateChangeY = useRef(0);
+  const SCROLL_THRESHOLD = 100; // px
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const delta = Math.abs(currentScrollY - lastStateChangeY.current);
+
+      if (
+        currentScrollY > lastScrollY &&
+        currentScrollY > 100 &&
+        delta > SCROLL_THRESHOLD
+      ) {
+        // Scrolling down and past 100px, and threshold passed
+        setIsVisible(false);
+        lastStateChangeY.current = currentScrollY;
+        if (isMenuOpen) setIsMenuOpen(false); // Auto-close menu
+      } else if (currentScrollY < lastScrollY && delta > SCROLL_THRESHOLD) {
+        // Scrolling up and threshold passed
+        setIsVisible(true);
+        lastStateChangeY.current = currentScrollY;
+      }
+      setLastScrollY(currentScrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY, isMenuOpen]);
 
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.8 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-accent/20 shadow-lg px-4 sm:px-6 lg:px-12"
+      animate={{
+        opacity: 1,
+        y: isVisible ? 0 : -100,
+      }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur-md border-b border-gray-200 shadow-lg px-4 sm:px-6 lg:px-12"
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center relative justify-start h-16 sm:h-20">
@@ -35,8 +67,8 @@ const Navbar = () => {
 
           <BsList
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className={`md:hidden hover:scale-[1.1] transition-all ml-auto text-3xl text-gray-800 cursor-pointer ${
-              isMenuOpen ? "rotate-90  " : " "
+            className={`xl:hidden hover:scale-[1.1] transition-all ml-auto text-3xl text-foreground cursor-pointer ${
+              isMenuOpen ? "rotate-90" : ""
             }`}
           />
           {/* )} */}
@@ -45,7 +77,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             transition={{ duration: 1, delay: 0.4 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:flex hidden items-center  ml-50 space-x-6 xl:space-x-8"
+            className="xl:flex hidden items-center ml-auto space-x-6 xl:space-x-8"
           >
             {listItems.map((item, idx) => (
               <motion.li
@@ -81,25 +113,40 @@ const Navbar = () => {
             height: isMenuOpen ? "auto" : 0,
           }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md"
+          className="xl:hidden overflow-hidden"
         >
-          <div className="py-6 space-y-4">
-            {listItems.map((item, idx) => (
-              <motion.a
-                key={idx}
-                href={`#${item.toLowerCase()}`}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{
-                  opacity: isMenuOpen ? 1 : 0,
-                  x: isMenuOpen ? 0 : -20,
-                }}
-                transition={{ duration: 0.3, delay: idx * 0.1 }}
-                className={`block text-foreground font-medium hover:text-accent transition-colors duration-300 py-2 border-b border-accent/20 `}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </motion.a>
-            ))}
+          <div className="pb-8 pt-4 border-t border-gray-200 shadow-xl">
+            <div className=" space-y-2">
+              {listItems.map((item, idx) => (
+                <motion.a
+                  key={idx}
+                  href={`#${item.toLowerCase().replace(" ", "-")}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{
+                    opacity: isMenuOpen ? 1 : 0,
+                    x: isMenuOpen ? 0 : -20,
+                  }}
+                  transition={{ duration: 0.3, delay: idx * 0.1 }}
+                  className="group flex items-center justify-between py-3 px-4 rounded-lg text-gray-700 font-medium hover:bg-accent/10 hover:text-accent transition-all duration-300 text-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span>{item}</span>
+                  <svg
+                    className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-accent"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </motion.a>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

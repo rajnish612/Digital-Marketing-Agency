@@ -173,7 +173,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Left Content */}
-          <div className="order-2 lg:order-1 flex flex-col gap-6">
+          <div className="order-2 lg:order-1 flex flex-col gap-6 text-center lg:text-left w-full">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -182,7 +182,7 @@ const HeroSection = () => {
                 ease: easeInOutCubic,
                 delay: 0.4,
               }}
-              className="flex flex-col gap-3"
+              className="flex flex-col gap-4 items-center lg:items-start"
             >
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -192,9 +192,9 @@ const HeroSection = () => {
                   ease: easeOutQuart,
                   delay: 0.6,
                 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground mb-2"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground text-center lg:text-left"
               >
-                Experience Comfort{" "}
+                Your Perfect{" "}
                 <motion.span
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -203,11 +203,26 @@ const HeroSection = () => {
                     ease: easeInOutQuart,
                     delay: 0.8,
                   }}
-                  className="text-accent"
+                  className="text-accent relative"
                 >
-                  Like Home
-                </motion.span>
+                  Escape
+                  <svg
+                    className="absolute -bottom-2 left-0 w-full h-3 text-accent/30"
+                    viewBox="0 0 100 12"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0,8 Q25,2 50,8 T100,8"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                  </svg>
+                </motion.span>{" "}
+                <br />
+                Awaits in Assam
               </motion.h1>
+
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -216,29 +231,69 @@ const HeroSection = () => {
                   ease: easeInOutCubic,
                   delay: 0.9,
                 }}
-                className={`text-lg md:text-xl text-foreground/80 leading-relaxed tracking-normal  mb-1`}
+                className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-lg text-center lg:text-left mx-auto lg:mx-0"
               >
-                Welcome to your perfect homestay destination in the heart of
-                Assam.
+                Immerse yourself in authentic Assamese culture while enjoying
+                modern comforts. Our carefully curated homestay offers the
+                perfect blend of tradition and luxury in the scenic heart of
+                Northeast India.
               </motion.p>
+
+              {/* Key Features */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  ease: easeInOutCubic,
+                  delay: 1.0,
+                }}
+                className="flex flex-wrap gap-4 mt-4 justify-center lg:justify-start"
+              >
+                {[
+                  { icon: "🏡", text: "Authentic Experience" },
+                  { icon: "🌿", text: "Nature Immersion" },
+                  { icon: "🍽️", text: "Local Cuisine" },
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 1.1 + index * 0.1,
+                      ease: easeInOutCubic,
+                    }}
+                    className="flex items-center gap-2 text-foreground/60 text-sm"
+                  >
+                    <span className="text-base">{feature.icon}</span>
+                    <span className="font-medium">{feature.text}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
 
-            {/* Destination Card */}
+            {/* Call to Action Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: [0.68, -0.55, 0.27, 1.55],
-                delay: 1.1,
-              }}
-              className="w-full bg-[#f5f5f2]/60 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 p-4 group"
+              className="flex flex-col sm:flex-row gap-4 mt-6 items-center lg:items-start"
             >
-              {/* Icon - Aligned Left */}
-              <div className="flex justify-start mb-3">
-                <div className="w-10 h-10 bg-orange-100 border border-orange-300 rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                className="group relative px-8 py-4 bg-gradient-to-r from-accent to-accent/90 text-surface-dark font-semibold rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  <span>Book Your Stay</span>
                   <svg
-                    className="w-5 h-5 text-orange-500"
+                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -247,68 +302,40 @@ const HeroSection = () => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </div>
-              </div>
-
-              {/* Text Content - Left Aligned */}
-              <div className="space-y-0.5 text-left">
-                <span
-                  className={`text-xs font-semibold tracking-widest text-gray-500 uppercase `}
-                >
-                  Destination
                 </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </motion.button>
 
-                <h3 className="text-xl font-bold text-orange-600 group-hover:text-orange-700 transition duration-300">
-                  Duliajan, Assam
-                </h3>
-
-                <p
-                  className={`text-sm text-gray-700 font-medium leading-snug `}
-                >
-                  Discover the beauty of{" "}
-                  <span className="text-orange-500 font-semibold">
-                    Northeast India
-                  </span>{" "}
-                  with comfort, culture, and calmness.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 1.3 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col sm:flex-row gap-3 mt-2"
-            >
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    .scrollIntoView({ behavior: "smooth" })
-                }
-                className={`px-6 py-3 bg-accent text-surface-dark font-semibold rounded-full hover:bg-accent/90 transform hover:scale-105 transition-all duration-300 shadow-lg `}
-              >
-                Book Your Stay
-              </button>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() =>
                   document
                     .getElementById("catalogue")
                     .scrollIntoView({ behavior: "smooth" })
                 }
-                className={`px-6 py-3 border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-surface-dark transition-all duration-300 `}
+                className="group px-8 py-4 border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-surface-dark transition-all duration-300 relative overflow-hidden"
               >
-                Explore Packages
-              </button>
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    />
+                  </svg>
+                  <span>Explore Packages</span>
+                </span>
+              </motion.button>
             </motion.div>
           </div>
         </motion.div>
