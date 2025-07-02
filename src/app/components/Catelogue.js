@@ -2,6 +2,24 @@
 import React from "react";
 import { delay, motion } from "framer-motion";
 
+const wordStagger = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.07,
+    },
+  },
+};
+const wordVariant = {
+  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 const packages = [
   {
     name: "Basic",
@@ -36,6 +54,10 @@ const packages = [
 ];
 
 const Catelogue = () => {
+  const heading = "Our Stay Packages";
+  const subheading =
+    "Choose from our carefully crafted packages designed to give you the perfect homestay experience";
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -51,23 +73,54 @@ const Catelogue = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+          initial={{ y: 50, opacity: 0, filter: "blur(8px)" }}
+          whileInView={{ y: 0, opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
-            Our Stay <span className="text-indigo-600">Packages</span>
-          </h2>
-          <p className={`text-lg text-gray-800 max-w-2xl mx-auto`}>
-            Choose from our carefully crafted packages designed to give you the
-            perfect homestay experience
-          </p>
+          <motion.h2
+            className="text-5xl md:text-6xl font-bold text-gray-800 mb-4 flex flex-wrap justify-center"
+            variants={wordStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {heading.split(" ").map((word, idx) => (
+              <motion.span
+                key={idx}
+                variants={wordVariant}
+                className={
+                  word === "Packages"
+                    ? "text-indigo-600 inline-block mr-2"
+                    : "inline-block mr-2"
+                }
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.h2>
+          <motion.p
+            className={`text-lg text-gray-800 max-w-2xl mx-auto flex flex-wrap justify-center`}
+            variants={wordStagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {subheading.split(" ").map((word, idx) => (
+              <motion.span
+                key={idx}
+                variants={wordVariant}
+                className="inline-block mr-1"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.p>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
@@ -75,8 +128,8 @@ const Catelogue = () => {
           {packages.map((pkg, idx) => (
             <motion.div
               key={pkg.name}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.6, delay: idx * 0.2, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
               className={`relative group ${
@@ -90,13 +143,23 @@ const Catelogue = () => {
               >
                 {/* Popular Badge for middle package */}
                 {idx === 1 && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg"
+                  >
                     Most Popular
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Package Icon/Badge */}
-                <div
+                <motion.div
+                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                  viewport={{ once: true }}
                   className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center text-2xl font-bold text-white ${
                     idx === 0
                       ? "bg-gradient-to-br from-green-400 to-green-600"
@@ -106,7 +169,7 @@ const Catelogue = () => {
                   }`}
                 >
                   {idx === 0 ? "🏠" : idx === 1 ? "⭐" : "👑"}
-                </div>
+                </motion.div>
 
                 <h3 className="text-3xl font-bold text-center text-gray-800 mb-2">
                   {pkg.name}
@@ -115,18 +178,17 @@ const Catelogue = () => {
                   {pkg.price}
                 </p>
 
-                <ul className="space-y-4 text-gray-700 mb-8">
+                <motion.ul
+                  className="space-y-4 text-gray-700 mb-8"
+                  variants={wordStagger}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                >
                   {pkg.features.map((feature, index) => (
                     <motion.li
-                      initial={{ opacity: 0, x: -20 }}
-                      transition={{
-                        duration: 0.4,
-                        delay: 0.1 * index,
-                        ease: "easeOut",
-                      }}
-                      whileInView={{ opacity: 1, x: 0 }}
                       key={index}
-                      viewport={{ once: true, amount: 0.5 }}
+                      variants={wordVariant}
                       className="flex items-center text-base"
                     >
                       <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
@@ -135,9 +197,15 @@ const Catelogue = () => {
                       {feature}
                     </motion.li>
                   ))}
-                </ul>
+                </motion.ul>
 
-                <div className="text-center mt-auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="text-center mt-auto"
+                >
                   <motion.button
                     onClick={() =>
                       document
@@ -154,7 +222,7 @@ const Catelogue = () => {
                   >
                     Book Now
                   </motion.button>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}

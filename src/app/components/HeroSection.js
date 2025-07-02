@@ -8,6 +8,65 @@ const easeOutQuart = [0.25, 1, 0.5, 1];
 const easeInOutQuart = [0.76, 0, 0.24, 1];
 
 const HeroSection = () => {
+  const heading = "Your Perfect Escape Awaits in Assam";
+  const paragraph =
+    "Immerse yourself in authentic Assamese culture while enjoying modern comforts. Our carefully curated homestay offers the perfect blend of tradition and luxury in the scenic heart of Northeast India.";
+
+  const wordStagger = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+  const wordVariant = {
+    hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+    show: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.8, ease: easeOutQuart },
+    },
+  };
+
+  const ctaStagger = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.18,
+      },
+    },
+  };
+  const ctaVariant = {
+    hidden: { opacity: 0, y: 40, filter: "blur(8px)" },
+    show: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.8, ease: easeInOutCubic },
+    },
+  };
+
+  // Section-level stagger for left content
+  const sectionStagger = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.35,
+      },
+    },
+  };
+  const sectionVariant = {
+    hidden: { opacity: 0, y: 40, filter: "blur(8px)" },
+    show: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.8, ease: easeInOutCubic },
+    },
+  };
+
   return (
     <section
       id="home"
@@ -26,9 +85,9 @@ const HeroSection = () => {
         >
           {/* Right Content - Homestay Showcase (move first for mobile) */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+            transition={{ duration: 0.8, ease: easeInOutCubic, delay: 1.8 }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             className="order-1 lg:order-2 flex justify-center lg:justify-end pt-8"
           >
             <div className="relative w-full max-w-lg">
@@ -78,9 +137,9 @@ const HeroSection = () => {
 
               {/* Small Gallery Preview */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 1.8 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+                transition={{ duration: 0.8, ease: easeInOutCubic, delay: 1.8 }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 className="flex gap-3 mt-4"
               >
                 {[
@@ -90,10 +149,10 @@ const HeroSection = () => {
                 ].map((src, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{
-                      duration: 0.4,
+                      duration: 0.8,
                       delay: 1.9 + index * 0.1,
                       ease: easeInOutCubic,
                     }}
@@ -113,10 +172,10 @@ const HeroSection = () => {
                   </motion.div>
                 ))}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{
-                    duration: 0.4,
+                    duration: 0.8,
                     delay: 2.2,
                     ease: easeInOutCubic,
                   }}
@@ -173,81 +232,79 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Left Content */}
-          <div className="order-2 lg:order-1 flex flex-col gap-6 text-center lg:text-left w-full">
+          <div className="order-2 lg:order-1 flex flex-col gap-6 w-full items-center justify-center text-center lg:items-start lg:justify-start lg:text-left">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: easeInOutCubic,
-                delay: 0.4,
-              }}
-              className="flex flex-col gap-4 items-center lg:items-start"
+              variants={sectionStagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="flex flex-col gap-4 w-full items-center justify-center lg:items-start lg:justify-start"
             >
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 1,
-                  ease: easeOutQuart,
-                  delay: 0.6,
-                }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground text-center lg:text-left"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground flex flex-wrap w-full justify-center lg:justify-start text-center lg:text-left"
+                variants={sectionVariant}
               >
-                Your Perfect{" "}
                 <motion.span
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.6,
-                    ease: easeInOutQuart,
-                    delay: 0.8,
-                  }}
-                  className="text-accent relative"
+                  variants={wordStagger}
+                  initial="hidden"
+                  animate="show"
+                  className="flex flex-wrap w-full justify-center lg:justify-start"
                 >
-                  Escape
-                  <svg
-                    className="absolute -bottom-2 left-0 w-full h-3 text-accent/30"
-                    viewBox="0 0 100 12"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M0,8 Q25,2 50,8 T100,8"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                    />
-                  </svg>
-                </motion.span>{" "}
-                <br />
-                Awaits in Assam
+                  {heading.split(" ").map((word, idx) => (
+                    <motion.span
+                      key={idx}
+                      variants={wordVariant}
+                      className="inline-block mr-2 relative"
+                    >
+                      {word === "Escape" ? (
+                        <span className="text-accent relative">
+                          {word}
+                          <svg
+                            className="absolute -bottom-2 left-0 w-full h-3 text-accent/30"
+                            viewBox="0 0 100 12"
+                            preserveAspectRatio="none"
+                          >
+                            <path
+                              d="M0,8 Q25,2 50,8 T100,8"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              fill="none"
+                            />
+                          </svg>
+                        </span>
+                      ) : (
+                        word
+                      )}
+                    </motion.span>
+                  ))}
+                </motion.span>
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.8,
-                  ease: easeInOutCubic,
-                  delay: 0.9,
-                }}
-                className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-lg text-center lg:text-left mx-auto lg:mx-0"
+                className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-lg w-full text-center lg:text-left mx-auto lg:mx-0 flex flex-wrap justify-center lg:justify-start"
+                variants={sectionVariant}
               >
-                Immerse yourself in authentic Assamese culture while enjoying
-                modern comforts. Our carefully curated homestay offers the
-                perfect blend of tradition and luxury in the scenic heart of
-                Northeast India.
+                <motion.span
+                  variants={wordStagger}
+                  initial="hidden"
+                  animate="show"
+                  className="flex flex-wrap w-full justify-center lg:justify-start"
+                >
+                  {paragraph.split(" ").map((word, idx) => (
+                    <motion.span
+                      key={idx}
+                      variants={wordVariant}
+                      className="inline-block mr-1"
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
+                </motion.span>
               </motion.p>
 
               {/* Key Features */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  ease: easeInOutCubic,
-                  delay: 1.0,
-                }}
+                variants={sectionVariant}
                 className="flex flex-wrap gap-4 mt-4 justify-center lg:justify-start"
               >
                 {[
@@ -271,71 +328,78 @@ const HeroSection = () => {
                   </motion.div>
                 ))}
               </motion.div>
-            </motion.div>
 
-            {/* Call to Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col sm:flex-row gap-4 mt-6 items-center lg:items-start"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    .scrollIntoView({ behavior: "smooth" })
-                }
-                className="group relative px-8 py-4 bg-gradient-to-r from-accent to-accent/90 text-surface-dark font-semibold rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              {/* Call to Action Buttons */}
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 mt-6 items-center xl:items-start justify-center lg:justify-start pb-8 lg:pb-0"
+                variants={sectionVariant}
               >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  <span>Book Your Stay</span>
-                  <svg
-                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <motion.div
+                  variants={ctaStagger}
+                  initial="hidden"
+                  animate="show"
+                  className="flex flex-col sm:flex-row gap-4 w-full justify-center"
+                >
+                  <motion.button
+                    variants={ctaVariant}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() =>
+                      document
+                        .getElementById("contact")
+                        .scrollIntoView({ behavior: "smooth" })
+                    }
+                    className="group relative px-8 py-4 bg-gradient-to-r from-accent to-accent/90 text-surface-dark font-semibold rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.button>
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      <span>Book Your Stay</span>
+                      <svg
+                        className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </motion.button>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() =>
-                  document
-                    .getElementById("catalogue")
-                    .scrollIntoView({ behavior: "smooth" })
-                }
-                className="group px-8 py-4 border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-surface-dark transition-all duration-300 relative overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  <motion.button
+                    variants={ctaVariant}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() =>
+                      document
+                        .getElementById("catalogue")
+                        .scrollIntoView({ behavior: "smooth" })
+                    }
+                    className="group px-8 py-4 border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-surface-dark transition-all duration-300 relative overflow-hidden"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                    />
-                  </svg>
-                  <span>Explore Packages</span>
-                </span>
-              </motion.button>
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                        />
+                      </svg>
+                      <span>Explore Packages</span>
+                    </span>
+                  </motion.button>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>
