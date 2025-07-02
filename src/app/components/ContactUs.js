@@ -34,19 +34,58 @@ const ContactUs = () => {
         viewport={{ once: true }}
       >
         {/* Left Content */}
-        <div className="space-y-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.12,
+              },
+            },
+          }}
+          className="space-y-6"
+        >
           <motion.h2
             className="text-4xl font-bold text-gray-800"
-            initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            variants={{
+              hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+              show: {
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+                transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] },
+              },
+            }}
           >
-            Get in Touch ✉️
+            {"Get in Touch ✉️".split(" ").map((word, idx) => (
+              <span key={idx} className="inline-block mr-2">
+                {word}
+              </span>
+            ))}
           </motion.h2>
-          <p className="text-gray-600 text-lg">
-            Have questions or want to book your stay? Choose your date and send
-            us a WhatsApp message!
-          </p>
+          <motion.p
+            className="text-gray-600 text-lg"
+            variants={{
+              hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+              show: {
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+                transition: { duration: 0.8, ease: [0.25, 1, 0.5, 1] },
+              },
+            }}
+          >
+            {"Have questions or want to book your stay? Choose your date and send us a WhatsApp message!"
+              .split(" ")
+              .map((word, idx) => (
+                <span key={idx} className="inline-block mr-1">
+                  {word}
+                </span>
+              ))}
+          </motion.p>
 
           <form className="space-y-4">
             <div>
@@ -112,7 +151,7 @@ const ContactUs = () => {
               Message on WhatsApp
             </motion.a>
           </form>
-        </div>
+        </motion.div>
 
         {/* Right Content */}
         <motion.div

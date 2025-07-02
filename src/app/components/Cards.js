@@ -38,7 +38,7 @@ export function Cards() {
   return (
     <div className="relative overflow-hidden w-full h-full py-20">
       <Gallery />
-      <Carousel slides={slideData} />
+      {/* <Carousel slides={slideData} /> */}
     </div>
   );
 }
