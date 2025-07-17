@@ -51,7 +51,6 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-gradient-to-br from-gray-900 to-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,7 +66,6 @@ const Services = () => {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
@@ -79,16 +77,13 @@ const Services = () => {
               className="group relative"
             >
               <div className="h-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-2">
-                {/* Icon */}
                 <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${service.color} flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   {service.icon}
                 </div>
 
-                {/* Content */}
                 <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
                 <p className="text-gray-300 mb-6">{service.description}</p>
 
-                {/* Features */}
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-gray-400">
@@ -98,7 +93,6 @@ const Services = () => {
                   ))}
                 </ul>
 
-                {/* CTA Button */}
                 <button className={`w-full py-3 px-6 rounded-lg bg-gradient-to-r ${service.color} text-white font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105`}>
                   Learn More
                 </button>
@@ -107,7 +101,6 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

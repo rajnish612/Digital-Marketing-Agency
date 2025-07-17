@@ -35,7 +35,6 @@ const values = [
 const AboutUs = () => {
   return (
     <section id="about-us" className="py-20 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden">
-      {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -43,7 +42,6 @@ const AboutUs = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +57,6 @@ const AboutUs = () => {
           </p>
         </motion.div>
 
-        {/* Stats Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,9 +76,7 @@ const AboutUs = () => {
           ))}
         </motion.div>
 
-        {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          {/* Left Side - Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -99,7 +94,6 @@ const AboutUs = () => {
             </div>
           </motion.div>
 
-          {/* Right Side - Content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -129,7 +123,6 @@ const AboutUs = () => {
           </motion.div>
         </div>
 
-        {/* Values Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

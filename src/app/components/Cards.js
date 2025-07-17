@@ -50,7 +50,6 @@ const testimonials = [
 export function Cards() {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
-      {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
@@ -58,7 +57,6 @@ export function Cards() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +72,6 @@ export function Cards() {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
@@ -85,19 +82,16 @@ export function Cards() {
               viewport={{ once: true }}
               className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 transform hover:-translate-y-2"
             >
-              {/* Stars */}
               <div className="flex items-center mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <span key={i} className="text-yellow-400 text-xl">⭐</span>
                 ))}
               </div>
 
-              {/* Content */}
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
                 "{testimonial.content}"
               </p>
 
-              {/* Author */}
               <div className="flex items-center">
                 <img
                   src={testimonial.image}
@@ -113,7 +107,6 @@ export function Cards() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

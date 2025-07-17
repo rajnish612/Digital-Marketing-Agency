@@ -70,7 +70,6 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="py-20 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
-      {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/3 right-1/3 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -78,7 +77,6 @@ const Portfolio = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +92,6 @@ const Portfolio = () => {
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +114,6 @@ const Portfolio = () => {
           ))}
         </motion.div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -130,7 +126,6 @@ const Portfolio = () => {
                 project.featured ? "md:col-span-2 lg:col-span-2" : ""
               }`}
             >
-              {/* Image */}
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
@@ -139,12 +134,10 @@ const Portfolio = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 
-                {/* Category Badge */}
                 <div className="absolute top-4 left-4 px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full text-sm text-white">
                   {project.category}
                 </div>
 
-                {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center">
                     <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 mb-3">
@@ -161,7 +154,6 @@ const Portfolio = () => {
                 </div>
               </div>
 
-              {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                 <p className="text-gray-300 text-sm mb-4">{project.description}</p>
@@ -190,7 +182,6 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

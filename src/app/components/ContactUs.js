@@ -54,7 +54,6 @@ const ContactUs = () => {
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden">
-      {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
@@ -62,7 +61,6 @@ const ContactUs = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +78,6 @@ const ContactUs = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -181,7 +178,6 @@ const ContactUs = () => {
             </form>
           </motion.div>
 
-          {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -214,7 +210,6 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* Quick Stats */}
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
               <h3 className="text-2xl font-bold text-white mb-6">Why Choose Us?</h3>
               
@@ -238,7 +233,6 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* Social Links */}
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
               <h3 className="text-2xl font-bold text-white mb-6">Follow Us</h3>
               

@@ -5,7 +5,6 @@ import { motion } from "motion/react";
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
-      {/* Animated background shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
@@ -13,7 +12,6 @@ const HeroSection = () => {
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
-        {/* Main heading */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,7 +29,6 @@ const HeroSection = () => {
           </p>
         </motion.div>
 
-        {/* Stats section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,7 +49,6 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,7 +69,6 @@ const HeroSection = () => {
           </button>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
